@@ -1,2 +1,4 @@
 # hello_world
-my first repo
+My first repo.
+
+My name is Arturo Bravo an I'm from Guadalajara Jalisco Mexico.
