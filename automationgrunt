@@ -1,0 +1,437 @@
+
+<------------------------------------NOTES------------------------------------->
+<---------------------------------------------------->
+INTRODUCTION TO GRUNT.JS
+ Welcome to this module on Grunt.js .
+	Grunt is extensively used to automate tasks that are performed in routine manner.
+	This is highly customizable, which makes it one of most desirable feature.
+	You will learn the theoretical aspects alone in the module and there will be separate module to perform hands-on case-study in sand box environment.
+  The learner is expected have fair idea about JavaScript and Node.js to develop better understanding about this module.
+
+ Introduction to Grunt.js
+  Created by Ben Alman in 2012, Grunt a JavaScript task runner is primarily used to automate the frequently performed tasks such as
+	Minification
+	Compilation
+	Unit testing
+	Linting and so on.
+<---------------------------------------------------->
+TASK RUNNER IN GRUNT.JS
+ What is a Task Runner?
+  The Task runner enables automation. The task runner after having this configured in the Gruntfile , takes care of performing the repetitive mundane work such as minification, compilation, unit testing, and linting.
+  Task runner saves lot of time for you and your team thereby improving the productivity.
+
+
+ How does Task Runner help ?
+	https://youtu.be/KAD-l__vek4
+<---------------------------------------------------->
+INSTALLING GRUNT.JS
+ Installing Grunt.js
+	https://youtu.be/kHto5oZmDlA
+
+
+ Installing Grunt.js
+  Grunt.js has dependency on Node.js. Before we install the Grunt, we need to install the Node.js.
+  As discussed, installing the Grunt.js involves the following steps.
+	Install Node.js
+	Install grunt-cli globally
+	Create a package.json file
+	Install grunt locally
+	Creating the Gruntfile.js
+	Install plug-ins
+
+
+ Installing Grunt.js
+  Grunt.js could be installed using the below syntax:
+	npm install grunt-cli -g
+
+
+ Quick Fact
+  Grunt prefers the configuration model approach to coding. This simplifies the development approach by adding the required functionalities directly as plug-ins.
+<---------------------------------------------------->
+CREATING A GRUNTFILE
+ Creating a Gruntfile
+  Gruntfile acts as the anchor providing the list of actions to be performed -
+	Customize the tasks that informs plug-ins where to trace files for actions
+	Configure Grunt plug-ins to automate basic requirements such as Uglify ,Concat and so on.
+	Register tasks that needs to be run.
+
+
+ Creating a Gruntfile
+	https://youtu.be/hQKqcmjEkqk
+
+
+ Sample Gruntfile
+  Sample Gruntfile for reference :
+	module.exports = function(grunt) {
+	  grunt.initConfig({
+	    jshint: {
+	      files: ['Gruntfile.js', 'src/*.js', 'test/**/*.js'],
+	      }
+	    },
+	    watch: {
+	      files: ['<%= jshint.files %>'],
+	      tasks: ['jshint']
+	    }
+	  });
+	  grunt.loadNpmTasks('grunt-contrib-jshint');
+	  grunt.loadNpmTasks('grunt-contrib-watch');
+	  grunt.registerTask('default', ['jshint']);
+	};
+
+
+ Quick Fact
+  All the task runners cascade the following properties:
+	Consistency
+	Effectiveness
+	Efficiency
+	Repeatability
+
+Q: Which takes care of performing the repetitive mundane work in Grunt.js?
+Gruntfile
+grunt.js
+Register
+A: Task runner
+
+Q: Registering of tasks happens within
+Package.json
+grunt.js
+Task runner
+A: Gruntfile
+
+Q: Presence of _______ is must is to proceed ahead with installation of grunt
+Express Framework
+Jade
+Express.js
+A: Node.js
+
+Q: Grunt.js helps with simplification through automation. Is this true or false ?
+A: True
+
+Q: The 3 main actions to be performed in gruntfile include
+Correlate , plug-ins, Register tasks
+A: Configurations , loading plug-ins, Register tasks
+Controls, plug-ins , Register
+All the options
+None of the Options
+<---------------------------------------------------->
+ADDING PLUG-IN TO GRUNT
+ Adding plug-in to Grunt
+  The plug-ins play a vital role in incorporating specific functionality. The plug-ins are listed down in the grunt website [https://gruntjs.com/plugins].
+	The plug-in listing is automatically generated from the npm module database and could be installed easily.
+	There are around 6000+ plug-ins available.
+	Officially maintained plug-ins carry prefix contrib and are highlighted with a *.
+
+
+ Adding plug-in & Concat feature
+	https://youtu.be/7g6jJu2yq7g
+
+
+ Quick Fact
+  Grunt allows users to customize their tasks through predefined plug-ins. This eases the work to great extent.
+<---------------------------------------------------->
+COMPILING SASS TO CSS
+ What is SASS ?
+  SASS is the most mature, stable, and powerful professional grade CSS extension language in the world.
+  SASS is completely compatible with all versions of CSS. SASS expands to Syntactically Awesome Style Sheets.
+  Grunt assists with compiling SASS into CSS with the help of plug-in.
+
+
+ Compiling SASS to CSS
+	https://youtu.be/VSQf10i0_7c
+
+
+ Quick Fact
+  Grunt allows users to add their custom developed plug-ins and publish them to npm. Apart of officially maintained plug-ins there are many custom developed plug-ins offering wide range of tasks.
+<---------------------------------------------------->
+UGLIFYING IN GRUNT
+ What is Uglifying ?
+  Uglify is all about minimizing JS file by
+	removing all the unnecessary white spaces
+	modifying all functions and variable names to keep the file size to minimum as possible.
+  Minimum file size
+	faster load times from server
+	compiler or interpreter needs to process less amount of code,
+  Normally, Uglify is done at the expense of making it extremely difficult to read in return for better performance.
+
+
+ Uglifying using grunt
+  https://www.youtube.com/watch?v=ZBGbN8i-NFI
+  https://youtu.be/ZBGbN8i-NFI
+
+
+ Quick Fact
+  Grunt extends access to many predefined plug-ins which could be used to work with JavaScript tasks and on static content.
+<---------------------------------------------------->
+MINIMIZING USING GRUNT
+ Differentiating Concat / Minification / Uglification
+	Concatenation - appending all of the static files into single large file.
+	Minification - removing unnecessary whitespace and redundant / optional tokens like curly and semicolons, and can be reversed by using a 'linter'
+	Uglification - transforming the code into an 'unreadable' form, that is, renaming variables/functions to hide the original intent, mostly un-reversible.
+
+
+ Minimizing using grunt
+	https://youtu.be/q3Sqljpr-Vc
+	https://www.youtube.com/watch?v=q3Sqljpr-Vc
+
+
+Q: Grunt prefers____ model approach to coding.
+pick and apply
+streamlined
+A: Configuration
+collinear
+session based
+
+Q: Grunt does not allow users to add their custom developed plug-ins and publish them to npm.
+A: False
+
+Q: Which of these is officially maintained grunt plug in?
+jit-grunt
+concurrent
+karma
+shell
+A: contrib-less
+
+Q: CSS with superpowers' : This refers to _____________
+SACS
+A: SASS
+SRSS
+SLSS
+SPSS
+
+Q: The number of plug-ins available in grunt is around
+8000+
+2000
+3000+
+A: 6000+
+5000+
+<---------------------------------------------------->
+GRUNT PLUG-IN USAGE
+ The Watch Task
+  Watch Task acts as monitor and keeps monitoring for any change to happen to any of the listed files under focus. And upon any change to any one of the files, it will trigger an event to accomplish necessary actions as mentioned.
+  Installing the Watch plug-in could be achieved through the subsequent means
+  $ npm install grunt-contrib-watch --save-dev
+
+
+ The Watch Task
+	https://youtu.be/qtP5xbwMcDQ
+
+
+ Removing Unused CSS
+  grunt-uncss task helps in removing unused CSS from your projects with UnCSS. grunt-uncss works across multiple files and supports dynamically injected CSS as well.
+  Installing the grunt-uncss could be achieved through the subsequent means
+  $ npm install grunt-uncss --save-dev
+
+
+ Removing Unused CSS
+	https://youtu.be/Pog9WzzXUO0
+
+
+ Minifying Images
+  ImageMin helps to compress the gif, jpeg, and png files. This takes care of compressing both static and dynamic images. This will assist in improving the rendering of webpages using images of big size.
+  Installing the Imagemin plug-in could be achieved through below code
+  $ npm install grunt-contrib-imagemin --save-dev
+  Note: There is limit to the image file size. This cannot optimize files of huge size.
+
+
+ Minifying Images
+	https://youtu.be/pTudV53RLzE
+
+
+ Automatic Failure Notifications
+  grunt-notify task helps throwing automatic desktop notifications for Grunt errors and warnings. This could also be used to throw useful notifications upon completion of some activity.
+  Install the notify plug-in could be achieved through below means
+  $ npm install grunt-notify --save-dev
+
+
+ Automatic Failure Notifications
+	https://youtu.be/xwF7ohbjG4k
+
+
+ Font formats
+  This plug-in provides all font-face icons to be rendered on websites.
+  Fonts in all required formats, CSS/Sass/Less/Stylus and HTML demo page.
+  Install the webfont plug-in could be easily achieved using below syntax:
+  $ npm install grunt-webfont --save-dev
+  Note: Depending on the engine, installation of ttfautohint or fontforge might be required.
+
+
+ Include Bower dependency
+  grunt-wiredep task helps with injecting the Bower dependencies into your HTML code from Grunt.
+  This plug-in uses wiredep, which assists to look into all components you have, then determines the best order to inject your scripts in to your HTML file.
+  Install the wiredep plug-in through below syntax
+  $ npm install --save-dev grunt-wiredep
+
+
+ File Revisioning
+  grunt-filerev task helps with asset revisioning by using file content hashing.
+  The task ensures to revision any dependent map file along with source js, css files
+  Install the filerev plug-in through below syntax:
+  $ npm install --save-dev grunt-filerev
+
+
+ Validating JS files
+  grunt-contrib-jshint task helps to validate JavaScript files with JSHint.
+  JSHint is a tool that helps to detect errors and potential problems in your JavaScript code. Grunt brings this functionality using this plug-in.
+  Install the jshint plug-in through below syntax:
+  $ npm install grunt-contrib-jshint --save-dev
+
+
+ Cleaning files & Folders
+  grunt-contrib-clean task helps to clean the file & folder. This will used to remove all the unwanted content.
+  Install the clean plug-in through below syntax:
+  $ npm install grunt-contrib-clean --save-dev
+<---------------------------------------------------->
+PLUG-IN CREATION
+ Basics of plug-in Creation
+  Let's see how to Create basic plug-in here.
+	For creating a new plug-in, install grunt-init
+		$ npm install -g grunt-init
+	Clone the grunt-init-gruntplug-in.git project from github to local
+		$ git clone git://github.com/gruntjs/grun-init-gruntplug-in.git ~/.grunt-init/gruntplug-in
+	Trigger the plug-in initiation
+		$ grunt-init gruntplug-in
+	Provide all required info for creating a plug-in like project name, desc, version, git repo,licenses, author info
+	Prepare dev environment
+		$ npm install
+	Finally publish
+		$ npm publish
+
+
+ Basics of plug-in Creation
+	https://youtu.be/GN26KOsSlZk
+<---------------------------------------------------->
+OPTIMIZING GRUNTFILE
+ Optimizing Gruntfile
+  Optimizing Gruntfile requires simplifying the gruntfile by decentralizing the different actions performed by grunt. Rather accommodating all grunt plug-ins into single file, here we tend to split it across different files based on the action.
+  For optimizing, plug-in to be installed is Load grunt config
+  $ npm install load-grunt-config
+  Note: There is a file aliases.yaml which will list the different operations to be carried out.
+
+
+ Optimizing Gruntfile
+	https://youtu.be/PHO6Br6jTRE
+
+
+Q: After installing the required plug-ins, the next activity would be _______
+Update the grunt folder with by downloading new plug-ins
+Add the plug in through the cmd Install npm install grunt-XXX --save-dev
+Add the plug-in to the package.json file
+A: Add the plug-in in gruntfile through loadNpmTasks
+
+Q: How can one reduce the size of images using grunt?
+grunt-contrib-min
+grunt-contrib-jpegmin
+grunt-contrib-jpegmin
+A: grunt-contrib-imagemin
+
+Q: Which plug-in takes care of sending automatic notifications?
+A: grunt-notify
+grunt-inform
+grunt-auto-notify
+notify
+
+Q: The grunt plug-in to remove any unwanted CSS within project is _________
+A: grunt-uncss
+contrib-grunt-nilcss
+contrib-grunt-nocss
+grunt-remov-css
+
+Q: After installing any plug-ins, the file which would reflect the dependency changes automatically ________________
+gruntfile.js
+style.css
+npmload.js
+A: package.json
+
+Q: Which grunt plug-in would be of use if you would like to monitor set of .js files and take any appropriate actions if any changes happens to them?
+A: Watch
+notify
+Unjs
+uglify
+Uncss
+
+Q: Which plug-in assists with cleaning of the unwanted folders & files
+grunt-filerev
+A: grunt-contrib-clean
+grunt-uncss
+grunt-contrib-jshint
+
+Q: Which plug-in helps with revisioning the files ?
+grunt-wiredep
+grunt-contrib-jshint
+A: grunt-filerev
+grunt-contrib-clean
+<---------------------------------------------------->
+GRUNT FINAL ASSESSMENT
+
+Q: While installing grunt.js, the cli in "$ npm install grunt-cli -g" represents
+configuration linear interface
+Common language interface
+Clean language interface
+A: Command line interface
+
+Q: The final step of creating a plug-in is
+install
+notify
+randomize
+A: publish
+
+Q: The plug-in used for Uglify is
+uglify-minify
+nl-jsuglify
+A: contrib-uglify
+ugly-folders
+uglify-parallel
+
+Q: Which plug-in helps with validation of the js files ?
+grunt-filerev
+grunt-wiredep
+A: grunt-contrib-jshint
+grunt-contrib-clean
+
+Q: SASS expands to ______________
+Synchronously Awesome Style Sheets
+Synonmically Applicable Style Sheets
+A: Syntactically Awesome Style Sheets
+
+Q: Which of these is not an example of the operations of the Task runner?
+A: Splitting files
+prefixing CSS
+Concatenating files
+Minifying CSS files
+
+While installing grunt.js, the g in "$ npm install grunt-cli -g" represents
+Gather
+		Gruntfile
+	Global
+Guidelines
+
+Q: Which plug-in assists with injection of bower dependency code ?
+grunt-filerev
+grunt-contrib-jshint
+A: grunt-wiredep
+grunt-contrib-clean
+
+Q: Officially maintained plug-ins carry prefix _________
+prescrib
+consul
+config
+describ
+A: contrib
+
+Can one create his own plug-in and add to the grunt library ?
+No
+	Yes
+<---------------------------------------------------->
+<----------------------------------MATERIAL------------------------------------>
+https://gruntjs.com/
+https://gruntjs.com/api/grunt.task
+https://www.npmjs.com/package/grunt-register-tasks
+https://gruntjs.com/getting-started
+
+https://gruntjs.com/plugins
+https://gruntjs.com/creating-plugins
+<------------------------------------TO DO------------------------------------->
+
+<-------------------------------VIDEO NOTATIONS-------------------------------->
+
+<------------------------------------WORDS------------------------------------->

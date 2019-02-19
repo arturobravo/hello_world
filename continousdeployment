@@ -1,0 +1,812 @@
+
+<------------------------------------NOTES------------------------------------->
+<---------------------------------------------------->
+CONTINUOUS DEPLOYMENT
+Introductory Note
+According to Martin Fowler, "It’s hard enough for software developers to write code that works on their machine. But even when that’s done, there’s a long journey from there to software that’s producing value - since software only produces value when it’s in production".
+Learn Continuous Deployment (CD), which is a practice that enables automatic deployment of software to production.
+
+What is Continuous Deployment?
+Continuous Deployment is a software development practice, where software is built in such a way that it can be released automatically to production any time.
+
+What is Continuous Deployment?...
+CD is a logical extension of Continuous Integration, which together aims at giving developers and end users an incredible experience by:
+	Detecting bugs at an early stage.
+	Ensuring seamless deployments to all environments.
+
+Why CD?
+A reliable release is highly at stake when:
+	The software is deployed manually.
+	Development is completed and then deployed to a production-like environment.
+	Lack of proper configuration tools.
+Adapt Continuous Deployment for a stable and reliable release.
+
+Why CD?...
+	Reduced cycle time: Reduces the time it takes from the development of code to the changed code being used by users in production.
+	Zero downtime releases: Frequent deployment of changes enables negligible production downtime.
+	High quality: Issues detected early and fixed immediately, ensures the best quality of the end product.
+	Immediate user feedback: Frequent deployment enables quick user feedback.
+
+Continuous Delivery vs Continuous Deployment
+We need to practice Continuous Delivery in order to do Continuous Deployment but the reverse is not mandated.
+
+Foundations of CD
+	Configuration Management
+	Continuous Integration
+	Continuous Testing
+<---------------------------------------------------->
+CONFIGURATION MANAGEMENT
+Configuration Management often used as a synonym for version control, is the practice where every artifact from source code to build executables, test and deployment scripts, environment configuration details are:
+	Stored
+	Uniquely identified
+	Retrieved
+	Modified when needed
+
+Configuration Management...
+Configuration management enables:
+	Reproducibility
+	Traceability
+CM is the backbone without which it is impossible to do continuous integration, deployment pipelining and release management.
+
+Environment Configuration
+An environment is the:
+	Set of resources needed for an application to work.
+	Configuration of those resources.
+
+Environment Configuration...
+Attributes that describe an environment are:
+	Hardware configuration (amount of memory, the number, type of CPUs and so on).
+	Network infrastructure
+	Operating environment
+	Middleware configuration (software such as database servers, messaging systems, application and web servers).
+
+Integrating Environment Configuration
+Environment configuration details can be integrated at:
+	Build time: Build scripts pulls the details and integrates with the build deliverables.
+	Package creation
+	Deployment time: As part of the installation, deployment scripts will fetch and pass the required details to the application.
+	Design the application to pull the details during the run time or start up.
+
+Environment Configuration: Practices
+	Avoid integrating configuration during build or packaging time. If included at this stage:
+		Same executables cannot be deployed to all environments.
+- Tested and released software may not be the same.
+	Supply configuration information for different environments using the same source or mechanism.
+- Only one source to be changed, managed and controlled.
+- Use registry settings, configuration files, database or an external configuration server like SOAP, REST interface, etc.
+
+Environment Configuration: Practices...
+	Store configuration options and it's source code in the same repository.
+		Keep the values (like user details for Github, Twitter etc,.) somewhere else.
+	Model configuration as a tuple.
+- Tuples vary based on application, it's version and environment it runs.
+- Differentiates the configurations used for deploying a particular version of an application.
+	Test the configuration details.
+- Ensure availability of services the application depends on, like a messaging queue, by smoke testing.
+
+Benefits of CM
+	Disaster Recovery: Ability to restore services after a major outage.
+	Auditability: Ability to trace back the origin of a deployed change (the version of the code).
+	Response to defects: Enables quick fixing of errors.
+
+Summary: Configuration Management
+	Use version control.
+	Store everything in the version control.
+	Check in changes regularly.
+	Manage external libraries.
+	Manage dependencies between components or modules developed by various teams.
+	Manage application configuration.
+<---------------------------------------------------->
+CONTINUOUS INTEGRATION (CI)
+The process of automatically triggering build and testing, when a developer checks in a change to the version control is known as Continuous Integration.
+
+Q: Build can be triggered by a version control tool.
+A: True
+
+Q: Capacity testing _______________.
+is a critical testing and helps to verify business aspects
+A: is a critical testing and helps to verify technical aspects
+is a critical testing and helps to verify programming aspects
+None of the options
+
+Q: Large scale changes to an application can be achieved using __________.
+Trunk Based development
+A: Branch by Abstraction
+Both the options
+
+Q: ____________ testing was derived from hardware testing.
+System
+A: Smoke
+Capacity
+None of the options
+
+Q: Accurev is a _____________________________ system.
+Local Version Control
+Centralized Version Control
+All of the Options
+A: Stream Based Version Control
+Distributed Version Control
+
+Q: A build that fails __________ stage will not be deployable.
+Commit
+Both the options
+None of the options
+A: Acceptance
+
+Q: The continuous deployment must be followed to practice continuous delivery.
+A: True
+
+Q: Collection of executable codes is known as ____________.
+Installers
+A: Binaries
+build
+<---------------------------------------------------->
+CONTINUOUS TESTING
+Testing Philosophy
+Cease dependence on mass inspection to achieve quality. Improve the process and build quality into the product in the first place. - Edward Deming
+
+Continuous Testing
+Testing is a cross-functional activity that should be done continuously from the beginning of development.
+Continuous testing:
+	Provides confidence that the code is working as desired.
+	Results in fewer bugs, improves reputation and reduces support costs.
+	Encourages good development practices.
+
+Testing Strategy
+Developers must define strategies for continuous testing, based on:
+	Risks: Identify and prioritize the project risks.
+	Mitigation of Risks: Decide actions to be taken.
+
+Testing Types
+	Acceptance Testing	Support Programming, Business Facing
+	Manual Testing		Business Facing, Critique Project
+	Capacity Testing	Critique Project, Technology Facing
+	System Testing		Technology Facing, Cupport Programming
+
+User Acceptance Testing
+	It is the last stage of the application's testing cycle.
+	This test is done using real-time scenarios to verify if the specifications are met.
+	Also known as Operational Acceptance Testing (OAT) or end-user testing.
+
+Types of UAT
+	Alpha & Beta testing: Improves usability of the end product.
+		Alpha: Testing is done in development environment.
+		Beta: Testing is done in customer environment.
+	Contract Acceptance testing : Testing is done to ensure criteria and specifications agreed in the contract are met.
+	Regulation Acceptance testing: Tests if the software complies with the regulations.
+	Operational Acceptance testing: Tests the operational readiness of the application (such as security, backup, and recovery tests).
+
+Functional Testing vs UAT
+Functional testing is a verification activity, while UAT is a validation activity.
+
+Capacity Testing
+Scalability testing:
+	Checks the response time of
+		Individual request.
+		Simultaneous user requests.
+	More servers, services etc., added appropriately based on the test results.
+Longevity testing:
+	Measures the system performance.
+	Assesses stability problems.
+
+Capacity Testing…
+Throughput testing:
+	Checks capability of the system to handle:
+		- *Transactions*.
+		- *Messages or page hits per second*.
+Load testing:
+	Checks capability of application to handle an increase in load.
+
+Capacity Testing Practices
+	Do testing in a production like an environment.
+	Trigger only if the change passes the acceptance test.
+	Carefully verify if failures are due to capacity issues (it may fail due to interface issues as well).
+
+Manual Testing
+Manual testing is done to ensure if the application is delivering the value as expected by the users.
+Types of manual testing:
+Showcases:
+	Functionality demonstrated to users frequently during development.
+	Specification issues are identified at an early stage.
+
+Manual Testing...
+Exploratory testing:
+	Explores application features.
+	Leads to creation of a new set of test cases.
+	Captures new requirements for the application.
+Usability testing:
+	Determines if the application is useful, usable, accessible and desirable.
+
+Smoke Testing
+	Originated from hardware testing (a device when switched on is tested for smoke or fire).
+	Also known as build verification testing.
+	Not a comprehensive testing with limited test cases.
+	Positive scenarios are tested with valid data.
+	Ensures critical functionalities are working.
+	Identifies issues introduced due to components integration.
+
+
+Continuous Testing: Summary
+	Automate the tests (like unit, component, acceptance).
+	Trigger tests when a change is done to the code, configuration or the environment.
+	Perform manual testing continuously throughout the project.
+	Always improve the testing strategy.
+<---------------------------------------------------->
+DEPLOYMENT PIPELINE AND DEPENDENCY MANAGEMENT
+Deployment Pipeline
+Automated implementation of an application’s build, test, deploy and release process is known as deployment pipeline.
+Shown are the typical stages a change passes through in the pipeline.
+
+Deployment Pipeline...
+	Any change in application’s configuration, source code, data or environment triggers a new instance of the pipeline.
+	In the pipeline, binaries and installers are created first.
+	Tests are run on the binaries.
+	A combination of code, configuration, data, and the environment is considered releasable only after passing the pipeline successfully.
+
+Deployment Pipeline Advantages
+	Enables collaboration (each step is visible to the team).
+	Ensures issues are identified and resolved at an early stage.
+	Helps team to automatically deploy and release a software version anytime.
+	Aids team to identify inefficiencies in the release process.
+	Enables metrics collection (such as cycle time).
+
+Pipeline Flow
+Commit Stage -> Acceptance Testing -> Capacity Testing -> Manual Teting -> Release
+
+Commit Stage
+The commit stage includes:
+	Code compilation
+	Execution of commit tests
+	Binaries creation (for use at later stages)
+	Static code analysis
+	Artifacts creation (like test databases)
+
+Commit Stage...
+	The release candidate is created after passing this stage.
+	Eliminates the code changes that are unfit for production.
+	Reports at the earliest to the developer if the application is broken.
+	The owner is the developer.
+
+Commit Stage Practices
+	Create efficient, fast, non-environment dependent scripts.
+	Fail commit, if the build fails due to the compilation, test or environmental issues.
+	Design a fast user feedback mechanism.
+
+Acceptance Testing Stage
+	A critical threshold in the deployment pipeline.
+	Takes delivery teams beyond basic continuous integration.
+	Tests every version of the software that passes the commit stage.
+	Changes that fails at this stage, is not deployed.
+	Validates if the system meets the business criteria.
+
+Capacity Testing Stage
+	Specific real-world scenarios are tested.
+Practices to follow:
+	Set threshold limit for concluding the test result.
+	Plan short duration tests.
+	Tests must be repeatable.
+	Run tests sequentially or parallelly based on need (like load and longevity are run parallelly).
+
+Manual Testing Stage
+	Ensures system is usable and fulfills its requirements.
+	Detects bugs that are not identified in the previous stages.
+	This stage includes:
+-  **U**ser ***A***cceptance ***T***esting 
+-  ***Testing in*** an ***exploratory*** or ***integration environment***.
+
+Release Stage
+	Delivers the system to users:
+- ***As packaged software*** or 
+- ***Deploys it*** into a production or staging environment.
+	Also known as deployment stage.
+Steps to deploy or release software:
+	Create and manage the infrastructure (like hardware, networking, etc.) on which your application will run.
+	Install the correct version of the application.
+	Configure the application, including any data it requires.
+
+What are Dependencies?
+Dependencies occur, when a piece of code depends on:
+	another part of the code (components) or
+	software (like libraries) to build or run.
+Dependencies are represented by a Directed Acyclic Graph.
+
+Dependency Types
+	Build-time: To be present when the code is compiled and linked.
+	Run-time: To be present when the application runs in an environment.
+
+Managing Libraries
+	Check-in the libraries to the artifact repository.
+	Use a dependency management tool like Maven or Ivy to declare the libraries. It fetches the libraries from artifact repository when required.
+Next section Component Pipeline elaborates on components dependency.
+<---------------------------------------------------->
+COMPONENT AND INTEGRATION PIPELINES
+Component Dependencies
+	Components towards the left are part of upstream dependency.
+	Components towards the right are part of downstream dependency.
+Each component must have:
+	Its own pipeline.
+	Pipeline triggered by:
+		Change in component's code.
+		Any of the upstream dependency.
+
+Visualizing Upstream Dependencies
+Any change in the upstream components will trigger the build of the downstream component.
+
+Visualizing Downstream Dependencies
+Shows the versions of downstream components built for deploying an end product.
+
+Component Pipeline
+A component pipeline must:
+	Perform code compilation.
+	Run unit tests.
+	Run acceptance tests.
+	Support manual testing, where appropriate.
+	Assemble one or more binaries that can be deployed to any environment.
+A component pipeline is an integral part of the integration pipeline.
+
+Component Pipeline Scenarios
+Component pipelines are used in below scenarios:
+	Split application parts with different lifecycle (like building an own version of an OS kernel and coding can be split, as both changes at a different frequency).
+	Functionally split application areas.
+	Components using different technologies.
+	Shared components used by other projects.
+	Stable components that do not frequently change.
+
+What is Integration Pipeline?
+	An extension of each individual component’s pipeline.
+	At first stage:
+- ***Integrate*** components ***binaries***.
+- ***Create*** a ***package*** (or packages) ***for deployment***.
+
+What is Integration Pipeline?...
+At second stage:
+- ***Deploy*** the application ***to a production-like environment***.
+- ***Run smoke tests*** to identify any integration issues. 
+	After passing through the second stage successfully, code enters the acceptance test stage.
+	After acceptance test stage, the normal sequence of stages follows.
+
+Integration Pipeline Details
+	Components change between one run of the pipeline and the next.
+	Integrating successful builds of components, need not necessarily produce desired positive result.
+	If the build fails:
+		- It will be ***difficult to conclude the version of the code*** that ***caused*** the ***failure*** (code could have changed after the build).
+		- A simple solution is to ***build every possible combination of the good versions*** of the components.
+
+Integration Pipeline Practices
+Practices to adhere:
+	Provide build status visibility to the team.
+	Trigger downstream pipelines, as soon as binaries pass through the unit tests.
+	Traceability: Ability to trace back the versions of components that contribute to a successful or failure build.
+	Plan for short pipelines (long pipelines or chains of pipelines may compromise feedbacks).
+<---------------------------------------------------->
+RELEASE STRATEGY AND PIPELINE IMPLEMENTATION
+Releasing Application
+	Create a release strategy.
+	Plan the first release.
+	Release the applicatio
+
+Release Strategy
+Details to be present in the strategy are:
+	Asset and configuration management strategy
+	Technology details
+	Deployment pipeline implementation plan
+	Test environment details
+	Steps to manage configuration
+	External system interface details (how and at what stage are they tested).
+
+Release Strategy...
+	Disaster recovery plan
+	Service-level agreements
+	Production sizing and capacity planning
+	Archiving strategy
+	Steps to handle defects
+	Ways to handle upgrades, including data migration
+	Application support management
+
+Release Plan
+Release plan details the steps to:
+	Deploy the application first time.
+	Smoke-test the application and its services.
+	Back out changes, if the deployment goes wrong.
+	Backup and restoration of the application’s state.
+
+Release Plan...
+Release plan details the steps to:
+	Upgrade without disturbing current state.
+	Restart or redeploy when the application fails.
+	Monitor the application.
+	Perform data migrations.
+Release plan contains:
+	Information on the location of the logs.
+	Description of the information maintained in logs.
+	Issue log of problems and solutions from previous deployments.
+
+Enabling Application Release
+To ensure the application is releasable at any given time:
+	Hide new functionality until changes are done.
+	Perform incremental changes, that is releasable.
+	Define components that change at a different phase.
+	Use branch by abstraction to make large-scale changes.
+
+Implementing Pipeline
+To implement a pipeline:
+	Identify the value stream (the processes of a project).
+	Automate build and deployment process.
+	Automate code analysis and tests.
+	Evolve the pipeline, based on the metrics collected.
+
+Pipeline Practices
+	Build the binaries only once.
+	Create a script for each stage in the pipeline.
+	Choose right technology to deploy the application.
+	Deploy in the same way to all environments.
+
+Pipeline Practices...
+	Deployments must be smoke-tested.
+	Deploy into a production-like environment.
+	Each change should propagate to the pipeline instantly.
+	If any part of the pipeline fails, stop the line.
+	Developers and operations must collaborate on deployment process.
+	Evolve your deployment system incrementally.
+
+Check if Project Uses CD?
+Ways to determine if a project is using the concepts of CD:
+	At any given time, a particular version of the software can be deployed to any environment (ready to deploy software).
+	Automated feedback received on any change made.
+<---------------------------------------------------->
+METRICS AND TOOLS
+Metrics
+Mentioned here are few metrics to track the continuous deployment journey:
+Velocity: Metric to measure the ability of the team to complete changes.
+Regression Test Duration: Regression testing is done to ensure that the changes had not introduced new issues. Track the time taken to devise measures to enable quick deployments.
+Number of open issues: Issues that are reported before a successful deployment.
+Percentage of failed deployments: Measure of deployments that have failed.
+Broken Build Time: Time taken to fix broken builds.
+Mean Time to Recover: Time taken to resolve an issue after it is reported.
+Cycle Time: Time taken between the change and release.
+
+Tools
+Continuous Integration
+	Jenkins
+	Tem City
+	Bamboo
+	Travis
+Version control
+	Subversion
+	GIT
+	Mercurial
+	Performance
+Code Review
+	Crucible
+	gerrit
+	GitHub
+	Stash
+Configuration Management
+	Chef
+	Puppet
+	Ansible
+	Vagrant
+
+Monitoring
+	Logstash
+	Graphite
+	Splunk
+Orchastration
+	Chef
+	Puppet
+	Ansible
+Dashboards
+	Jenkins
+	Bamboo
+	Go
+
+Q: New instance of ___________ is created upon every check-in.
+Component Pipeline
+A: All of the options
+Deployment Pipeline
+Commit Stage
+
+Q: Time taken to fix a broken build is measured using ________________.
+Successful build rate
+A: Build repair rate
+Total Build time
+
+Q: Dependencies between components must be represented using ______.
+A: Directed acyclic graph
+Both the options
+Cyclometric dependency
+
+Q: Build tools can be categorised as __________________.
+A: Both the options
+Product-oriented
+Task-oriented
+
+Q: Build-time dependency should be present when an application is run.
+A: False
+
+Q: Continuous deployment aims at making feedback loops as short as possible.
+A: True
+
+Q: People who do the deployment should be part of creating the deployment process.
+A: True
+
+Q: Release candidate is created after the change passes through the ______________.
+A: Commit Stage
+Staging environment
+Acceptance Stage
+<---------------------------------------------------->
+RULES : SCENARIO OF BUILDING AN APP
+CI / CD Rules
+Until now, you had read through the concept of continuous deployment.
+The main rules to be followed for building and deploying an application are listed in the upcoming cards. (Short summarization of CI and CD concepts).
+
+Codebase
+Rule: One codebase, many deploys.
+Codebase: Single repository (like subversion) or set of repositories (like Git).
+	One to one correlation must be maintained between codebase and application.
+	Codebase must remain same across each deployment (versions can be different).
+
+Dependencies
+Rule: Declare and isolate dependencies.
+	Maintain a dependency manager
+		To specify the libraries required for the app.
+- Enables a developer to check out the app's codebase.
+	Install language runtime and dependency manager as prerequisites.
+
+Configuration
+Rule: Store configuration information in environment variables (Env Var).
+Configuration includes:
+	Resource handles to the database, other backing services.
+	Credentials for external services like AWS S3.
+Configuration varies across deploys while code does not.
+Storing it in Env Var makes it easy to change without changing code.
+
+Backing Services
+Rule: Treat backing services as attached resources.
+Backing Services are resources that the application needs for its normal operation like:
+	Data stores (MySQL)
+	Messaging systems (RabbitMQ)
+	Email services (Postfix)
+	Caching systems (Memcached)
+
+Backing Services...
+Backing services are managed:
+	Locally by system administrators (like a database).
+	By the third party (like email services).
+Ensure for the app:
+	There must be no distinction between local and third party services.
+	Services must be easily swapped without any code change (local with a third party and vice versa).
+	Attach and detach services when required.
+
+Build, Release and Run
+Rule: Separate the build, release and run stages.
+Codebase gets transformed into a deploy element in three stages:
+Build stage:
+	Converts a code into an executable bundle.
+	Gets dependencies and compiles binaries.
+
+Build, Release and Run...
+Release stage:
+	Integrates the build with configuration.
+	After this stage, change is ready for immediate execution.
+Run stage (or runtime):
+	Runs the application.
+Strictly separate build, release and run stages. For example, do not change a code at the run stage, as it cannot propagate back to the build stage.
+
+Port Binding
+Rule: Export services through port binding.
+At times web apps are executed inside a container. For example, Java apps may run inside Tomcat.
+Instead, the app could export services:
+	By binding to a port.
+	Listening to the requests coming in on that port.
+For example:
+	Tornado is used for Python.
+	Visit a service URL such as http://localhost:5000/ to access the service.
+
+Disposability
+Rule: Fast startup and graceful shutdown.
+	Start and stop application processes when required.
+	Enables robust production deploys (quick code or configuration deployment).
+
+Environment Parity
+Rule: Keep all environments as similar as possible.
+All environments such as dev, staging and production must use the same type, versions of backing services.
+<---------------------------------------------------->
+CONTINUOUS DEPLOYMENT COURSE SUMMARY
+Course Summary
+To summarize, what you have studied:
+	Foundations of CD
+	Deployment pipeline and its stages
+	Component and Integration pipeline
+	Releasing application
+	Quick rules to build an app
+<---------------------------------------------------->
+CONTINUOUS DEPLOYMENT: FINAL ASSESSMENT
+
+Q: The capability of your build system to handle an increase in the amount of code that it integrates and analyzes is known as ____________.
+None of the options
+Build Integration
+A: Build scalability
+Build performance
+
+Q: In branch by abstraction model, features are developed in _________.
+Release Branch
+Feature Branch
+Work Branch
+A: Mainline
+Task Branch
+
+Q: Collection of executable codes is known as ____________.
+Installers
+build
+A: Binaries
+
+Q: ______________ is a non-functional test.
+None of the options
+A: All of the options
+Capacity
+Security
+Performance
+
+Q: The deployment pipeline is initiated by the creation of a release candidate.
+A: True
+
+Q: User acceptance testing is a verification activity.
+A: False
+
+Q:Static code analysis is performed in the _____________.
+Unit test
+Acceptance stage
+A: Commit stage
+
+_________________________ are known as hot-deployments.
+Both the options
+Q: Zero downtime releases
+First time right releases
+None of the options
+
+Q: An environment that is in a properly deployed state is known as ____________.
+None of the options
+Mainline
+A: Baseline
+
+Famous problem of dependency management is known as ___________.
+WRONG		Dependency Hell
+Both the options
+None of the options
+DLL Hell
+
+Q: Environment constitutes _________________________.
+Hardware Configuration
+Middleware Configuration
+Network Infrastructure
+A: All of the options
+
+Q: Configuration information can be supplied using ____________.
+Registry settings
+A: All of the options
+Environment variables
+database
+
+Q: Functional testing is a verification activity.
+A: True
+
+Q: __________________ stage takes the delivery team beyond continuous integration.
+Commit
+A: Acceptance
+Both the options
+
+Q: Deployment pipeline is an extension of ______________.
+Continuous Testing
+A: Continuous Integration
+Configuration Management
+
+Q: Emergency fixes must go through the deployment pipeline.
+A: True
+
+_______________ stage asserts that the system works at the technical level.
+WRONG		Manual Test
+Commit
+Acceptance
+
+Q: What are the principle(s) that are basic for an effective configuration management?
+Configuration information should be maintained in a single place
+Binaries should be independent of configuration information
+A: Both the options
+None of the options
+
+Q: Testing done in a customer's environment is know as ____________.
+Contract
+All of the options
+Alpha
+A: Beta
+
+Q: Disciplined technique for restructuring a code without modifying its external behavior is _____________.
+Static Code Analysis
+A: Refactoring
+Branch by Abstraction
+
+User acceptance testing is done in the ______ stage.
+None of the options
+Manual Test
+WRONG		Acceptance
+
+Response time of the requests are verified using __________________.
+Scalability Testing
+WRONG		None of the options
+Throughput Testing
+Longevity Testing
+
+_____________ is a central part of continuous deployment.
+Deployment Pipeline
+Release Stage
+Continuous Integration
+
+Q: Load and Longevity test can be triggered parallelly.
+A: True
+
+_____________________ is a paradigm to move code from check-in to production in a controlled way.
+Integration Pipeline
+None of the options
+Deployment Pipeline
+Both the options
+
+____________ testing was derived from hardware testing.
+Smoke
+System
+Capacity
+None of the options
+
+Automated implementation of an application's build, test, and deployment process is called as _____________________.
+A: Deployment Pipeline
+Continuous Integration
+Integration Build
+
+Q: Which of the activity/activities are part of continuous integration?
+Inspection
+Tests
+Version Control
+Code Build
+A: All of the Options
+
+Only positive scenarios are validated in ___________ testing.
+Capacity
+Hardware
+Build Verification
+None of the options
+
+Q: It is advised to perform manual testing throughout the project phases.
+A: True
+
+Q: MTTR is __________________.
+Mean time between failures.
+A: Mean Time to Repair failures.
+Mean Time to reduce failures
+
+A build is triggered whenever there is a change in the _________.
+Both the options
+Q: Upstream dependency
+Downstream Dependency
+
+Q: Chef is an orchestration tool.
+A: True
+
+Value delivered by an application is validated through ______________.
+Showcases
+All of the options
+User acceptance
+WRONG		Usability
+
+Steps to be followed to release the application first time is part of ___________.
+Release Strategy
+None of the options
+Release Plan
+WRONG		Both the options
+<---------------------------------------------------->
+<----------------------------------MATERIAL------------------------------------>
+
+<------------------------------------TO DO------------------------------------->
+
+<-------------------------------VIDEO NOTATIONS-------------------------------->
+
+<------------------------------------WORDS------------------------------------->

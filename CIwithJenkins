@@ -1,0 +1,635 @@
+
+<------------------------------------NOTES------------------------------------->
+<---------------------------------------------------->
+INTRODUCTION TO CI
+ Will you be pleased to discover an error, a show stopper, at a crucial stage in your software?
+ Obviously, the answer is No!
+ What steps can be taken to detect and fix coding issues at an early stage of the development cycle?
+ Continous Integration (CI) can help in providing a solution.
+
+What is CI?
+ According to Martin Fowler,
+	Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Each integration is verified by an automated build (including test) to detect integration errors as quickly as possible.
+Source: martinfowler.com (https://martinfowler.com/articles/continuousIntegration.html)
+
+Quick Fact
+ The term Continuous Integration was first coined by Grady Booch.
+
+How to Enable CI?
+ You need a tool to create a CI enabled environment. Jenkins, Travis CI, Bamboo,Buildbot are different tools available to enable CI.
+ In this course, you will be learning about Jenkins, a widely used open source CI tool, written in Java.
+
+Quick Fact
+ Jenkins was earlier referred to as Hudson
+<---------------------------------------------------->
+INTRODUCTION TO JENKINS
+ What does Jenkins do?
+	Compiles and builds the code
+	Runs an internal shell or command line script
+	Starts execution of the integration tests
+	Monitor execution of tasks
+	Stops build in case of failure
+	Notify user on the build status
+	Deploy in test or production environments
+
+ Features of Jenkins
+	Easy to install
+	Easy to configure various tasks
+	Rich plugin ecosystem - Integrates with a variety of build, test,deploy,reporting tools
+	Permanent links - Jenkins provides direct links to the latest or failed build, which can be used for easy communication
+	Extensibility - Customize Jenkins to suit your needs
+	Distributed builds - Jenkins can distribute build, test jobs to multiple computers with different operating systems
+	File fingerprinting - Manages dependencies
+	Email integration- Emails the build status
+
+ Difference made by Jenkins
+  Pre Jenkins:
+	Source code was completely built and then tested
+	Bugs identified during testing in the source code, should be fixed and then re-tested
+	Slows the software delivery, as the entire process is manual
+  Post Jenkins :
+	Once code change is committed,Jenkins automatically takes care of the build , test and reporting of results.
+
+ Quick Fact
+  Jenkins was primarily developed by Kuhsoke Kawaguchi.
+<---------------------------------------------------->
+INSTALLING AND CONFIGURING JENKINS
+ Pre-Requisites to Install Jenkins
+  Recommended minimum configuration for installing Jenkins:
+	locally - Java 8, 256MB RAM and > 1 GB free disk space
+	small team - Java 8, >1 GB RAM and > 50 GB free disk space
+  Since all the builds take place on the Jenkins machine , system should have enough disk space for build storage. Jenkins can be installed on Windows, Ubuntu/Debian, Red Hat, Fedora/CentOS, Mac OS, X openSUSE
+
+ Installing Jenkins
+  Jenkins can be started from command line or can run on a web application server.
+	Download the jenkins.war file from Jenkins (https://jenkins.io/)
+	Start Jenkins directly from Command line with java-jar jenkins.war
+	On Successful completion ,Jenkins can be accessed locally from http://localhost:8080/
+  To run it from Tomcat server
+	Put the .war file into the webapps directory
+	Start Tomcat, Jenkins installation will be available on (http://localhost:8080/jenkins)
+
+ Launching Jenkins
+  On first launch of Jenkins, you will need to complete few configuration steps -
+	Obtain a generated value which is the super admin password
+	Proceed as per instructions on the screen
+	Proceed to install suggested plugins
+	Set up admin user when prompted or choose to continue with the generated value
+  Jenkins is now ready for use!
+
+ Configuring Jenkins
+  Jenkins installation is now complete. What are the next steps?
+	Select the Jenkins home directory (prefer location with enough free space)
+	Decide number of concurrent job executions to be allowed on Jenkins machine
+
+ Configuring Jenkins Contd.
+	Add custom environment variables
+	Mention SMTP server,user email suffix in the email notification section
+	Configure the location of JDK installation
+	To build Maven applications configure the location of Maven Home
+  You can perform these tasks by selecting Configure System under Manage Jenkins.
+
+ Introducing Hands-On Playground
+  For this course, as you proceed, it is recommended that you run through the various steps in the Building Docker Images using Jenkins scenario on the katacoda playground (https://katacoda.com/courses/jenkins/build-docker-images)
+<---------------------------------------------------->
+PLUGIN MANAGEMENT
+ Extending Jenkins Functionality
+	Once Jenkins is installed, it is time to configure it, to fit your needs
+	Jenkins has relatively few abilities, but it aids the s/w developers by providing a variety of plugins
+	Plugins are add-ons that allow Jenkins to interact with many other softwares
+	The exact plugins you install depends on the nature of your project
+  Continuous Testing		->	Selenium
+  Continuous Management		->	puppet
+  Continuous Deployment		->	ANSIBLE
+  Continuous Monitoring		->	Nagios
+  Version Control System	->	Git
+  Build				->	Maven
+
+ Plugins in Jenkins
+  Jenkins Plugins Index provides you the various plugin options such as
+	Source Control: Git, SVN, Mercurial
+	Testing : Selenium, Windmill
+	Triggers: Jabber, Directory watchers
+	Artifact: To copy components between projects like Amazon S3, SCP
+	Code Analysis: To parse the code with tools like CheckStyle,Findbugs,PMD
+	Build Tools: In large projects use a build manager such as Maven or Ant.
+	Reporting: Jenkins provides its own reports. It can be extended using tools like Static Analysis Collector that collects the different analysis results and shows it in a combined trend graph.
+  Plugins can be configured via the Manage Plugins under Manage Jenkins.
+  To learn how to add a plugin, try out steps 1,2 and 3 in katacoda playground. (https://katacoda.com/courses/jenkins/build-docker-images)
+
+Q: Job status notifications can be sent in JSON or XML formats from Jenkins, with out extending it's functionality.
+A: False
+
+Q: Jenkins allows you to :
+Disable plugins
+A: All of the options
+Uninstall plugins
+None of the options
+Install plugins
+
+Q: Which of the following statement is true about Jenkins?
+None of the options
+Jenkins supports plugins to depict trends only
+A: Jenkins supports plugins to showcase both metrics and trends
+Jenkins supports plugins to report metrics only
+
+Q: Which of the following is an artifact repository that can be configured as a plugin for Jenkins
+Maven
+Matrix
+A: Nexus
+Ansible
+
+Q: Which of the following functionality is not supported by Jenkins
+Deploy
+A: Code
+Test
+Build
+
+Q: Jenkins can manage job dependencies using ____________
+A: File Fingerprinting
+None of the options
+Distributed Build
+Build Configuration
+
+Q: Project type supported by Jenkins is/are:
+Maven
+Free-style
+A: All of the options
+Multi-Configuration
+External
+
+Q: Jabber is a :
+Deployment plugin
+Build plugin
+A: Messaging plugin
+<---------------------------------------------------->
+CREATING A JENKINS PROJECT
+ Set up a simple project
+  For setting up a new project in Jenkins , following sections are to be planned and configured as required:
+	SCM - Associate with a version control server
+	Triggering Build - Control when Jenkins will perform builds by Polling, Periodic or Build based on other projects
+	Execution of scripts, Ant and Maven targets
+	Archiving the artifacts
+	Recording and publishing build and test results
+	Email notifications
+
+ Create a new project
+  Now you will learn, how to create a simple build project.
+	Select New Item from Jenkins dashboard
+	Type the project name
+	Select Freestyle project (freestyle is the most configurable and flexible option, easy to setup!)
+	Click ok
+
+ Configure Job Notifications
+  In the job notifications section, you can choose to -
+	Prevent build of your project, when the dependent upstream or downstream job is in the queue or is building
+  Notifications plugin like Tikal will expand the available notification options.
+	On installing Tikal , you can send job status in JSON and XML formats
+	Set up the notification endpoint section with the required details
+
+ Configure SCM
+  Jenkins works by checking the changes to the source code of your project, building it in its own workspace.
+  In the source code management section -
+	Select location of files to be built
+	If you select git, then under repository URL mention the git location
+	If location is github, then under ADD button, mention the user id and password for the github repository
+
+ Configure Build Triggers
+  After source code location is defined , you need to configure Jenkins to check for code changes, so that, build is triggered automatically.
+  Various options to trigger the builds are:
+	Build whenever a SNAPSHOT dependency is built
+	Trigger builds remotely (e.g., from scripts)
+	Build after other projects are built
+	Build periodically (Runs on CRON job)
+	Poll SCM (Runs on CRON job)
+
+ How to define CRON expression?
+  Jenkins schedules are configured using the CRON syntax.
+  It consists of five fields separated by white space, indicating respectively the minute (0–59), hour (0–23), day of the month (1–31), month (1–12) and the day of the week (0–7, with 0 and 7 being Sunday). star is a wildcard character which accepts any valid value for that field.
+	“* * * * *” means every minute of every hour of every day.
+	“* 9-17 * * *” means “every minute of every day, between 9am and 5pm.”
+  There are other convenient short-hands, such as “@daily” and “@hourly”.
+
+ Adding a Build Step
+  Now you have learnt how to setup the code location and build frequency. Next step is to configure the build action.
+  In the build section, select Add Build step and opt for the required build option.
+	For simple java build - Select Execute Windows Batch command and enter the script in the command window
+	For Maven build - Select Invoke top-level Maven targets. Enter clean package,clean install or clean test as appropriate in the Goals field .
+  Hope you know - clean package will delete any previous build artifacts, compile code, run unit tests and generates a JAR file.
+
+ Configure Post Build Activities
+  Once your code is built, the results should be displayed for you to check and act. Jenkins does a great job of displaying test results and trends. Some of those are :
+	Aggregate downstream test results
+	Archive the artifacts
+	Build other projects
+	Deploy artifacts to maven repository
+	Record fingerprints of files to track usage
+	Email Notification
+  Install post-build script plugin to help you execute scripts after build completion.
+
+ Notifications
+  Now you have setup everything that is required for a build job : Detect code change, Trigger build , Record results.
+  But, will you not require an automatic notification of the build status?
+  How about an email notification?
+  Jenkins provides an Email Notification section. Mention the recipients under your project configuration.
+
+<---------------------------------------------------->
+EXECUTION OF THE JENKINS PROJECT
+ Executing the build job
+  Once a project is created successfully in Jenkins:
+	Build job is displayed on the Jenkins dashboard
+	Build starts automatically based on the build triggersettings
+	To run the job manually select Build Now
+	Progress of the build is displayed in the Build History section
+	Once build completes,click on the build number
+	Select the console output to see the details of the build
+
+ Build job status
+  Build Status is indicated in two ways :
+	A weather icon (on the home page dashboard) - shows you a record of multiple builds
+	A colored ball (on the individual project page) - shows you status of a single build
+  status has corresponding tooltips with explanations , when you hover over it.
+
+ Job Status
+  Job health	Description
+		No recent builds failed
+		20-40% of recent builds failed
+		40-60% of recent builds failed
+		60-80% of recent builds failed
+		All recent builds failed
+https://wiki.jenkins.io/download/attachments/41877565/dashboard-view-JobsStatistics.JPG?version=1&modificationDate=1268033102000&api=v2
+
+ Project Status
+  Status of the build	Description
+  Red			Failed
+  Orange/ambar		Unstable
+  Blue			Success
+  Gray			Pending/Disabled/Aborted
+<---------------------------------------------------->
+CI PIPELINE WITH JENKINS,GIT,TOMCAT
+ Setting up Jenkins CI Pipeline
+  In the katacoda exercise, you would have learnt how to use jenkins and docker in the CI pipeline.
+  Below are steps to setup Jenkins CI pipeline from Git to Tomcat.
+
+  Pre-Requisites
+	Jenkins,Maven,Tomcat should be up and running in your machine
+	Souce code should be made available in Git
+  Plugins to install
+	Deploy to Container , 'Git'
+  Jenkins Jobs to be created-
+	Create a Pull job that detects code changes in Git
+	Create a Build job that is triggered after the Pull job
+	Create a Deploy job to push results to tomcat
+
+ Setting up Deploy Job
+  You should be able to create the first two jobs easily. Below steps will help you to create the deploy job.
+  In the Post-build Actions section:
+	Select Deploy war/ear to a container
+	Mention the *.war file
+	Mention Context path- where your application will be published in Tomcat
+	Select Tomcat version in the Container dropdown
+	Enter credentials of user who can access Tomcat
+	Mention Tomcat URL to reach your tomcat instance
+  On changing your code in Git, you will see these jobs will trigger automatically on Jenkins.
+<---------------------------------------------------->
+INVOKING TEST FROM JENKINS PROJECT
+ Steps to invoke unit test
+  Jenkins provides a host of plugins for unit testing such as Junit and Mstest for .Net unit tests.
+  If you choose to use the Junit test:
+	Select project and choose the configure option
+	In Add Build step, choose action to invoke Ant
+	Select Advanced and enter the location of build.xml file
+	In Add post-build, select Publish Junit test results
+	In Test Report XMLs field, enter location of result xml files produced by executing Junit test cases
+	Save and then build
+
+ Installing Hudson Selenium Plugin
+  Do you want Jenkins to decide automatically whether a build is ready to proceed to the next stage ?
+  Use Automated tests.
+  For this, install Hudson Selenium Plugin from Manage Plugins section.
+
+ Steps to invoke automated test
+	Once plugin is installed successfully, select your project, click on the configure option.
+	In the Add Build Step section, select the Selenium SuiteRun option.
+	Add the necessary details for tests like browser,suitefile,resultfile and Save.
+  Now you are ready to build and get it going...
+
+
+Q: Build can be triggered :
+A: All of the options
+After completion of other builds
+By source code management commits
+Can be scheduled to run at specified time
+Manual Build Requests
+
+Q: Jenkins build job cannot be triggered manually?
+A: False
+
+Q: Record of multiple builds is displayed using a______________
+A: Weather icon
+None of the options
+Colored Ball
+Both the options
+
+Q: Copy artifacts' is an option that is available for selection under the
+Post-Build Actions
+A: Build Step
+Build Environment
+Build Triggers
+
+Q: In the build status images, which of the following statement is correct?
+Partial Sun with clouds' icon in the status means 60-80% of the recent builds failed
+A: Partial Sun with clouds icon in the status means 20-40% of the recent builds failed
+Partial Sun with clouds' icon in the status means all of the recent builds failed
+Partial Sun with clouds' icon in the build status means 40-60% of the recent builds failed
+
+Q: If you have multiple projects and if you need to check for new updates, every five minutes, which is the correct CRON expression that Jenkins can use to avoid polling of all the projects at the same time.
+None of the options
+*/5 * * * *
+A: H/5 * * * *
+5 * * * *
+
+Q: Functional testing can be automated using Jenkins.
+A: True
+<---------------------------------------------------->
+SECURITY MANAGEMENT IN JENKINS
+ How Secure is Jenkins ?
+  Jenkins is open to every one. So, anyone can access Jenkins and perform all available tasks that were discussed previously.
+  Hence it is recommended to secure Jenkins.
+  It provides settings for security and role management - useful for controlling access and defining user actions.
+
+ Setting Admin User
+	Select Configure Global Security under Manage Jenkins
+	In the next window - select Enable Security
+	Choose jenkins own user database to maintain your own user database
+	For a central administrator to define other users in the system, unselect Allow users to signup and save
+	Then, set up the admin user
+
+ Configuring User Access
+  As an admin user, you can now set up other users .
+	Select Manage Users under Manage Jenkins to add other users
+	Now you need to setup authorizations
+	Select Matrix based Security under Configure Global Security
+	If the user is not in the user group list, enter the user and add to the list
+	Define the relevant authorizations and save
+  Jenkins security setup is now complete.
+<---------------------------------------------------->
+DISTRIBUTED BUILD
+ How to distribute work load ?
+  What if, as part of a large project, you need to build codes and report results regularly ?
+  Running all the builds on a centralised machine would not be the best option
+  What if, you need to automatically test the code in various environments ?
+  Different environments are to be set up in separate machines
+  Jenkins distributed architecture is the solution in such scenarios.
+
+ Master-Slave architecture
+  Jenkins uses Master - Slave architecture for managing distributed builds. In master node, you need to install Jenkins. While it can also execute build jobs, it handles all related tasks for build system -
+	Schedule build job
+	Dispatch build job to slaves
+	Monitor the slave
+	Report the build results
+
+ Master-Slave Communication
+  Slave node offloads work from the master
+	It can run on various operating systems
+	Executes build jobs dispatched by master
+	Jenkins need not be fully installed on slave
+  To operate, master and slave will establish bi-directional communication link like **TCP/IP **.
+
+ How to Setup Slave node ?
+  To setup slave node:
+	Select Manage Node under Mange Jenkinsand Click New Node
+	Select the dumb slave or permanent agent option and Click Ok
+	In the next window, enter details like the IP address and the user credentials
+	Select the launch method and then Save
+
+ How to Configure Slave node ?
+  On completion of the steps mentioned in the previous card, the new node machine will be online and ready .
+  To execute the project in the slave node:
+	Select 'Restrict where this job can be run' option under your 'project configuration`
+	Mention the slave name in `Label expression' field
+<---------------------------------------------------->
+JENKINS BACKUP
+ How to Backup Jenkins ?
+  Taking project backups are crucial in software delivery process.
+  In Jenkins, all build logs, archives, configuration settings are stored under the Jenkins home directory.
+  To backup the home directory :
+	You can manually copy it to another location OR Install backup plugin
+	If you choose to use the backup plugin, you need to trigger backup manually
+	If full backup of home directory is not needed, use ThinBackup plugin to backup specific details, like jobs, configuration, build history
+<---------------------------------------------------->
+BEST PRACTICES AND CONCLUSION
+ Using Jenkins - Best Practices
+  Few recommendations for effective utilization of Jenkins
+	Secure Jenkins
+	Choose the correct plugins based on your project need
+	Schedule jobs ensuring not all jobs are executed at the same time
+	Monitor disk space and clear or archive data to maintain space
+	Break down jobs to allow reuse of generic jobs
+	Backup is required for configurations and activity logs
+<---------------------------------------------------->
+CONTINUOUS INTEGRATION WITH JENKINS - FINAL ASSESSMENT
+Q: In a distributed build environment, master computer can not execute any build and only slaves are capable of running build jobs
+A: False
+
+Q: Which of the following statement is correct about the build status images ?
+Partial Sun with clouds' icon in the status means all of the recent builds failed
+Partial Sun with clouds' icon in the status means 60-80% of the recent builds failed
+Partial Sun with clouds' icon in the build status means 40-60% of the recent builds failed
+A: Partial Sun with clouds' icon in the status means 20-40% of the recent builds failed
+
+Q: Amazon S3 can be integrated with Jenkins, using which feature?
+All of the options
+Read artifacts
+A: Publish artifacts
+Extract artifacts
+
+Q: CI pipeline consists of ______________
+Commitments
+A: Stages
+Tickets
+Items
+Artifacts
+
+Q: Which of the following statement is not true about Jenkins?
+Jenkins can be configured for taking backups
+A: Jenkins is highly secure and does not need any special security provisioning
+Jenkins should have enough disk space to support the build storage
+Jenkins supports a variety of plugins to enable an effective CI environment
+
+Q: In the distributed architecture Jenkins should be fully installed both in master and slave?
+A: False
+
+Q: Number of concurrent job executions can be mentioned in the :
+Project Configuration Section
+Build Triggers Section
+A: Configure System
+
+In a distributed build environment, master computer can not execute any build and only slaves are capable of running build jobs
+False
+True
+
+Q: Jenkins builds the source code :
+In the SCM repository
+A: In it's own workspace
+
+Q: Reporting results can be configured under section :
+A: Post-Build actions
+Job notifications
+Build Triggers
+Build Step
+
+Q: Jenkins can be configured to monitor external jobs like CRON jobs :
+Choose the 'Monitor External job' option under 'Build Triggers' section
+A: Choose the 'External' project type
+Choose the 'Monitor External job' option under 'Post Build Actions' section
+Choose the 'Monitor External job' option under 'Build Step' section
+
+Q: Backups can be automated using :
+Backup Plugin
+Backup Manager
+None of the options
+A: ThinBackup plugin
+
+Q: Execution of projects can be restricted to run on a specific slave node?
+A: True
+
+Q: Jenkins can be configured to check for changes on a URL to trigger build?
+A: True
+
+Q: The available options under 'Build Step' section varies depending on the plugins installed?
+A: True
+
+Which of the below options are used for copying Jenkins from one server to another?
+All of the options
+WRONG		Copy the related directory by sliding a job from one installation of Jenkins to another
+WRONG		Use backup plugins
+WRONG		Create a copy of an existing job by cloning the job directory in a different name
+WRONG		Rename existing job by renaming the directory
+None of the options
+
+Q: File usage across Jenkins jobs can be tracked using :
+Distributed build
+Plugins
+All of the options
+A: Fingerprints
+
+Q: For a scalable Jenkins environment which architecture is recommended ?
+Central Master Architecture
+A: Distributed Builds Architecture
+Automatic Builds Architecture
+Manual Polling Architecture
+
+Q: An amber ball in the build status refers to an unstable build?
+A: True
+
+Q: _____________ is a continuous integration tool.
+Nexus
+Ansible
+Maven
+A: Teamcity
+
+Q: After you configure backup settings using backup plugin, backup jobs will run automatically and start taking backups at the prescribed interval
+A: False
+
+Q: The expression * */8 * * * indicates which of the following action :
+Job runs only in the 8th month
+A: Job runs every 8th hour
+Job runs every 8 minutes
+None of the options
+
+Q: In a distributed environment reporting can be done using :
+Master Node
+Slave Node
+A: Both Slave and Master node
+None of the options
+
+Q: ThinBackup plugin is used for :
+A: Automatic or manual backup of global and job specific configuration
+automatic backup of Jenkins home directory only
+manual backup of jenkins home directory only
+Only automatic backup of global and job specific configuration
+
+Q: User security in Jenkins can be defined using :
+None of the options
+Matrix based security
+Project based matrix authorization
+A: Both the options
+
+Q: View of upstream and downstream connected jobs that forms a build pipeline is provided by:
+Build flow plugin
+Pipeline Plugin
+Deploy Plugin
+A: Build Pipeline Plugin
+
+Q: Jenkins is capable of displaying the build reports, generate trends and can render them in the GUI?
+A: True
+
+Q: Jenkins is a/an ______________ which can accelerate software development process.
+A: open source automation server
+free source automation server
+
+Q: File Fingerprinting is used for:
+Manage Jenkins backup
+All of the options
+Manage job security
+A: Manage job dependencies
+
+Q: Plugin that changes Jenkins to use green balls instead of blue for successful builds is?
+Changestatus
+A: Greenballs
+Greenstatus
+Buildstatus
+
+Q: Expression that should be used to run the job once every Monday, Wednesday and Saturday
+None of the options
+0***1,3,6
+A: 00**1,3,6
+****1,3,6
+
+Q: Users can now implement entire build, deploy and test using :
+All of the options
+Deploy Plugin
+Build flow plugin
+A: Pipeline Plugin
+
+Q: If you want to track whichtop build projects are using which middle and bottom build projects, what has to be done ?
+Ensure that build top projects are built prior to the required middle and bottom projects
+None of the options
+A: Relevant projects to be configured to record fingerprints
+Trigger the build jobs in the relevant sequence
+
+Q: Archive the artifacts' is an option that is available for selection under the :
+Job notifications
+Build Triggers
+A: Post-Build actions
+Build Step
+
+Master and slave nodes communicate through :
+None of the options
+separate socket connection
+All of the options
+ssh
+DCOM
+
+Q: Originally Jenkins was developed as the Hudson project?
+A: True
+
+Q: Jenkins can manage job dependencies using ___________ functionality.
+Distributed Build
+Build Configuration
+None of the options
+A: File Fingerprinting
+
+<---------------------------------------------------->
+<----------------------------------MATERIAL------------------------------------>
+https://martinfowler.com/articles/continuousIntegration.html
+https://jenkins.io/
+https://wiki.jenkins.io/download/attachments/41877565/dashboard-view-JobsStatistics.JPG?version=1&modificationDate=1268033102000&api=v2
+
+<------------------------------------TO DO------------------------------------->
+https://katacoda.com/courses/jenkins/build-docker-images
+<-------------------------------VIDEO NOTATIONS-------------------------------->
+https://www.tutorialspoint.com/jenkins/jenkins_reporting.htm
+https://code-maze.com/top-8-continuous-integration-tools/
+<------------------------------------WORDS------------------------------------->

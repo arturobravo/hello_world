@@ -1,0 +1,784 @@
+
+<------------------------------------NOTES------------------------------------->
+<---------------------------------------------------->
+INTRODUCTION TO AWS
+Here you will first learn about Cloud Computing and its characteristics. Then you will understand What is AWS, its application and usage. Following that you will learn in detail about the different kinds of products AWS supports.
+ * Compute
+ * Storage
+ * Database
+ * Networking and Content Delivery
+ * Developer Tools
+ * Management Tools
+ * Security and Compliance
+ * Application Services
+ * Messaging
+
+What is Cloud Computing?
+https://youtu.be/ae_DKNwK_ms
+
+Cloud Computing
+ * It is type of Internet-based computing that provides shared computer processing resources and data to computers and other devices on demand.
+ * It is a model for enabling ubiquitous, on-demand access to shared pool of configurable computing resources (e.g., computer networks, servers, storage, applications and services) provisioned minimal management effort.
+ * This relies on sharing of resources to achieve coherence and economy of scale, similar to a utility (like the electricity grid over an electricity network.)
+
+Cloud Characteristics
+National Institute of Standards and Technology (NIST) highlights various characteristics that are needed for a service to be regarded as “Cloud”.
+ * On-demand self-service - Sign up and enjoy the services without delays.
+ * Broad network access - Access service through standard platforms (laptop, mobile, desktop, etc.)
+ * Resource pooling - Resources are pooled to multiple customers.
+ * Rapid elasticity - Ability to meet with demand peaks.
+ * Measured Service - Billing is metered and delivered as a utility service.
+Three unique categories within Cloud Computing:
+ * Software as a Service (SaaS)
+ * Platform as a Service (PaaS)
+ * Infrastructure as a Service (IaaS)
+
+Introduction to Cloud Computing
+	LOCAL VIDEO
+
+Software as a Service (SaaS)
+ * Capability to run applications on a cloud infrastructure.
+ * Applications are accessible from several client devices via either a thin client interface, like a web browser e.g., web-based email
+ * Interplay between outside world and organization. e.g., email newsletter campaign software
+ * Software for a short term requirement. e.g., collaboration software for particular project
+ * “Vanilla” offerings where the solution is not differentiated.
+ * Consumer does not control or manage the underlying cloud infrastructure, which includes servers, network, operating systems and storage.
+SaaS is not suitable in scenarios where the application
+ * processes quick real time data.
+ * has a regulation or legislation that does not allow data being hosted externally.
+ * existing on-premise solution that satisfies all of the requirements of organization.
+
+Platform as a Service (PaaS)
+Computing platform that permits creating web applications effortlessly, fast, with no complexity of buying or maintaining the infrastructure and software.
+ * Services to develop and test applications, as well as deploy, host and maintain applications in the similar integrated development environment.
+ * Ability to deploy on cloud infrastructure with the help of programming languages, services, libraries, and tools.
+ * Built in scalability of deployed software with failover and load balancing.
+ * Integration with databases and web services through common standards.
+PaaS is not suitable in scenarios where the application -
+ * requires to be more portable with respect to where it is hosted.
+ * performance needs customization of the underlying software and hardware.
+ * proprietary approaches or languages would affect the development process.
+
+Infrastructure as a Service (IaaS)
+Capableness to provide networks, processing, storage, and other fundamental computing resources, and ability to deploy, run arbitrary software that can include operating systems and applications. Here, the consumer is incapable of controlling or managing the underlying cloud infrastructure.
+ * Resources are distributed as a service and enables dynamic scaling
+ * Utility pricing model
+ * Multiple users on one hardware Applicability-
+ * New organizations with less capital could invest in hardware easily
+ * Organizations growing rapidly
+ * Pressure on the organization to restrict capital expenditure and to migrate to operating expenditure
+IaaS is not suitable in cases where
+ * strict regulatory compliance is followed
+ * very high level of performance is required.
+
+
+Q: _____ mixes the simplicity of ________ with the power of _____, to great effect.
+A: PaaS,SaaS,IaaS
+
+Q: Developers and organizations all around the world leverage ______ extensively
+A: PaaS
+
+Cloud-computing providers offer their services as ______________
+A: IaaS,Paas,Saas
+
+Q: I have some private servers on my premises, also I have distributed some of my workload on the public cloud, what is this architecture called?
+Private Cloud
+Virtual Private Cloud
+Virtual Private Network
+A: Hybrid Cloud
+
+Q: The committee which designs the standards & characteristics for the cloud computing is
+A: NIST
+
+
+What is AWS?
+https://youtu.be/jOhbTAU4OPI
+
+History of AWS
+	LOCAL VIDEO
+
+Extending IT Infrastructure to the AWS Cloud
+https://youtu.be/CsGqu5L_PFI
+
+Features of AWS
+
+
+AWS offers numerous ways to create and manage resources. Following are the different ways to access the features offered by AWS.
+ -> AWS Management Console - A web interface for AWS.
+ -> AWS Command Line Interface (AWS CLI) - Commands for a wide set of AWS products.
+ -> Command Line Tools- Commands for individual AWS products.
+ -> AWS Software Development Kits (SDK) - APIs that are specific to programming language or platform.
+ -> Query APIs - Low-level APIs that are accessible using HTTP requests.
+You will learn more about AWS Management Console and CLI in detail as you progress.
+
+AWS Management Console
+	LOCAL VIDEO
+
+AWS Command Line Interface
+The AWS Command Line Interface is a unified tool that manages several AWS services from the command line and automates all the services through scripts.
+aws-shell is a command-line shell program to offer productivity and ease features to aid advanced and new users of the AWS Command Line Interface.
+Key Features Include:
+ * Fuzzy auto-completion for Resource identifiers, Options, Commands.
+ * Dynamic in-line documentation
+ * Execution of OS shell commands
+ * Export executed commands to a text editor
+
+
+Q: What does ARN stand for?
+Amazon Risk free Network
+Amazon Reserved Network
+Amazon Resource Network
+A: Amazon Resource Name
+
+
+Q: All Amazon services supports region?
+A: False
+
+Q: Which is more secure?
+A: VPC security group
+Both VPC & EC2
+EC2 Security Group
+None of the options
+
+Q: What are the measures to be taken to ensure maximum availability?
+Daily Backup
+A: Auto scaling in different Azs
+Clustering
+System Backup
+
+Q: How can you integrate IAM with data centers security?
+AWS Direct Connect
+A: SAML
+AWS VPN
+None of the options
+
+Q: Does Stopping and Terminating instances have same effect?
+A: False
+<---------------------------------------------------->
+PRODUCTS OF AWS CLOUD
+AWS Cloud - Products
+https://youtu.be/mZ5H8sn_2ZI
+
+AWS Cloud - Products
+Let us explore about different type of products in AWS.
+ * Compute - AWS provides numerous compute products that allows you to deploy, run, and scale applications as virtual servers, code or containers.
+ * Storage - Cloud storage is secure, scalable and reliable component that includes the information used by applications.
+ * Database - AWS provides fully managed NoSQL and relational databases, and in-memory cache to suit your application needs.
+ * Developer Tools - AWS Developer tools is a set of services that are offered to allow developers securely version control and store the source code of applications. Also, it aids to build, test and deploy the application automatically.
+ * Management Tools - Aids you to manage the applications and resources.
+ * Security and Compliance - Allows customers to know the proficient controls at AWS to maintain data protection and security in the cloud.
+ * Messaging - Provides several messaging services and tools with diverse abilities.
+ * Application Services - Offers a plethora of managed services for use with applications such as converting digital media into different formats, including search to your website, and hosting streaming application.
+<---------------------------------------------------->
+COMPUTE IN AWS CLOUD
+Compute forms the nucleus of creating and executing business.
+AWS provides several compute products that allows to deploy, run, and scale applications as virtual servers, code, or containers.
+Compute Covers
+ * Simple websites and applications on one or a few servers
+ * Control and manage cluster or server level functions such as deployment and scaling
+ * Manage stateful or stateless applications packaged as Docker containers
+ * Stateless, event-initiated applications that require fast response times
+
+AWS Compute Offerings
+Different Compute services offered by AWS.
+ * Amazon EC2 - Virtual Servers in the Cloud
+ * Amazon EC2 Container Service - Run and Manage Docker Containers
+ * AWS Lambda - Run Code in Response to Events
+ * Amazon EC2 Container Registry - Store and Retrieve Docker Images
+ * Amazon Lightsail - Launch and Manage Virtual Private Servers
+ * Amazon VPC - Isolated Cloud Resources
+ * AWS Batch - Run Batch Jobs at Any Scale
+ * AWS Elastic Beanstalk - Run and Manage Web Apps
+ * Auto Scaling - Automatic Elasticity
+
+What is Amazon EC2?
+	https://youtu.be/TsRBftzZsQo
+
+Amazon Elastic Compute Cloud (EC2)
+Amazon EC2 offers resizable cloud-based compute capability taking shape as virtual servers. There are a broad range of instance types that are easily manageable and exhibit different combinations of networking capacity, storage size, amount of memory, and CPU power.
+Features
+ * Removes the necessity of upfront investment on computer hardwares.
+ * Commission numnerous instances simultaneously
+ * Pay only for the used quantity
+ * Change web-scale cloud computing easy
+
+Applications
+ * Big data - e.g. Hadoop
+ * Database software - e.g. Aurora, DynamoDB
+ * Enterprise applications - e.g. SAP, Oracle
+ * Migrations from on-premises environments
+ * Open-source cluster management
+
+How does Amazon EC2 work?
+	https://youtu.be/tfYx5ec_tTg
+
+Amazon EC2 Container Service (ECS)
+Amazon ECS is a scalable, performance container management service to include Docker containers. It enables you to run applications at ease on a managed cluster of Amazon EC2 instances.
+Amazon ECS removes the necessity to install, run, and scale cluster management infrastructure.
+Applications
+ * Web applications
+ * Microservices
+ * Batch jobs
+ * Docker workloads
+
+How does Amazon ECS work?
+	https://youtu.be/zBqjh61QcB4
+
+AWS Lambda
+AWS Lambda aims to run code without managing or provisioning servers.
+ * Lambda is the nucleus of serverless computing. So build and run services and applications without bothering about servers.
+ * Run code for virtually any type of backend service or application - with no administration.
+ * Upload the code and Lambda handles everything needed to run and scale the code with better availability.
+ * Pay only for the compute time that you use.
+ * Create code to automatically trigger from other AWS services, otherwise call it directly from a mobile or web app.
+Applications
+ * Web applications
+ * Mobile backends
+ * IoT backends
+ * Stream processing workloads
+ * File processing workloads
+
+How does AWS Lambda work?
+	https://youtu.be/eOBq__h4OJ4
+
+Q: What is the maximum length of a file name in S3?
+UTF-16 1024 bytes long
+UTF-8 2048 bytes long
+UTF-16 2048 bytes long
+A: UTF-8 1024 bytes long
+
+Q: How will you secure the data at rest in EBS?
+Placement groups
+EBS data is secure always
+A: restrict access using IAM that prevents write operations to the EBS
+security groups and ACLS
+
+Q: What does S3 stand for?
+A: Simple Storage Service
+Super Storage Service
+Storage Simple Service
+Single Storage Service
+
+Q: Which AWS services will you use to collect and process e-commerce data for near real-time analysis?
+Amazon Redshift
+Amazon DynamoDB
+None of the options
+A: Both DynamoDB & Redshift
+
+Q: Only 1024 objects can be placed on S3 bucket?
+A: False
+
+Q: In S3, what does RRS stand for?
+A: Reduced Redundancy Storage
+Reduced Repeated Storage
+Reduced Refined Storage
+Repeated Redundancy Storage
+
+Q: Objects in S3 can be delivered through Amazon CloudFront
+A: True
+
+Q: How do you access data on Elastic block storage?
+Anywhere from internet
+Depends upon how it was initiated
+Anywhere from inside AWS
+A: only from an EC2
+
+Q: Difference between instance store and EBS
+Instance store is on premise storage EBS is cloud storage
+A: once the instance is stopped and started, the data in instance storage is lost. Whereas, the data in EBS persists.
+EBS data get deleted in each reboot.
+No difference, both are same
+
+Q: Route S3 can be used to route users to infrastructure outside of AWS
+A: True
+
+Q: EC2 stands for
+Electronic Compute Cloud
+Elastic Cloud Computer
+Electronic Cloud Computer
+A: Elastic Compute Cloud
+
+Q: What’s the maximum size of the S3 bucket?
+100 GB
+1 GB
+100 TB
+A: 5 TB
+
+Q: Which of the following is not true about Amazon Glacier
+Secure and durable storage for data archiving and backup
+A: Services enables rapid disaster recovery
+Optimized for data for which retrieval times of several hours are suitable
+Optimized for data that is infrequently accessed
+
+Q: When to choose C4 instances?
+High compute and High memory foorprint
+A: High compute and Moderate Memory footprint
+Low compute and High Memory footprint
+Low compute and Low Memory footprint
+<---------------------------------------------------->
+STORAGE IN AWS CLOUD
+Cloud storage is a vital component of cloud computing, including the information utilized by applications.
+ * Cloud storage is more secure, scalable, and reliable than conventional on-premises storage systems.
+ * AWS provides a complete set of cloud storage services to support archival and application compliance needs.
+ * Backup and archive applications, Databases, Internet of Things, Data warehouses, and Big data analytics depend on data storage architecture.
+
+What is AWS - S3?
+https://youtu.be/rKpKHulqYOQ
+
+AWS - S3
+Amazon S3 can be described as object storage that stores and retrieves any quantity of data from anywhere on the internet. Amazon S3 features a simple web service interface.
+ * Renders incredible durability,
+ * Scales past trillions of objects globally,
+ * Once data is saved in S3, it can be tiered automatically into minimal cost, longe-term cloud storage classes such as Amazon Glacier and S3 Standard - Infrequent Access for archiving.
+ * Serves as a target for backup and recovery, and disaster recovery; "data lake" for Big Data analytics, tier in an active archive and bulk repository for user-generated content.
+
+What is Amazon Glacier?
+https://youtu.be/PUVX84xbwCI
+
+Amazon Glacier
+Amazon Glacier is a durable, secure and economical cloud storage service for long-term backup and data archiving.
+ * Customers can safely store any data for as low as $0.004 per gigabyte per month.
+ * Considerable amount of savings in contrast to on-premises solutions.
+ * Amazon Glacier offers three choices to access archives for a few minutes to numerous hours.
+
+What is Amazon Elastic File System?
+https://youtu.be/6ZIPBC78U0s
+
+Amazon Elastic File System
+Amazon EFS offers simple, scalable file storage that can be utilized with Amazon EC2 instances in AWS Cloud.
+ * Amazon EFS is user-friendly and provides a simple interface allowing you to create and configure file systems effortlessly and fast.
+ * Storage capacity is elastic i.e. that shrinks or grows automatically.
+ * Several Amazon EC2 instances can access an Amazon EFS file system simultaneously, letting Amazon EFS to offer a common data source for workloads as well as applications operating on more than one Amazon EC2 instance.
+Application
+Amazon EFS is offered for better durability and availability for Big Data and analytics applications, container storage, web and content serving, media processing workflows, and enterprise applications.
+<---------------------------------------------------->
+DATABASE IN AWS CLOUD
+AWS provides a broad range of database services to suit all application needs. These database services can be started quickly and are fully manageable.
+AWS database services include:
+ * Amazon Relational Database Service (Amazon RDS) - supporting six widely used database engines
+ * Amazon DynamoDB - a quick and flexible NoSQL database service,
+ * Amazon Aurora - a MySQL-compatible relational database that delivers five times the performance
+ * Amazon Elasticache - an in-memory cache service with Memcached and Redis support.
+ * Amazon Redshift - a petabyte-scale data warehouse service.
+AWS provides AWS Database Migration Service - a service that allows easy and economical to migrate databases to AWS cloud.
+
+How Amazon RDS works?
+https://youtu.be/yjH10T3Miag
+
+Amazon RDS
+Amazon RDS is very easy to set up, run, and scale a relational database in the cloud.
+ * offers resizable and low-cost capacity while managing database administration tasks that consume more time,
+ * Amazon RDS offers six similar database engines to select from, including Microsoft SQL Server, Oracle, MariaDB, Amazon Aurora, MySQL, and PostgreSQL.
+
+How Dynamo DB works?
+https://youtu.be/oz-7wJJ9HZ0
+
+Dynamo DB
+Amazon DynamoDB is a flexible and quick NoSQL database service for all applications that require single-digit, consistent millisecond latency at any scale.
+ * Completely cloud managed database, supporting document and key-value store models.
+ * reliable performance and flexible data model makes it suitable for several applications such as IoT, mobile, ad tech, web, and gaming.
+According to Forrester, Amazon DynamoDB is the most popular NoSQL cloud database.
+
+Q: What is the maximum length of a file name in S3?
+A: UTF-8 1024 bytes long
+UTF-16 2048 bytes long
+UTF-8 2048 bytes long
+UTF-16 1024 bytes long
+
+Q: Only 1024 objects can be placed on S3 bucket?
+A: False
+True
+
+Q: In S3, what does RRS stand for?
+Repeated Redundancy Storage
+Reduced Refined Storage
+A: Reduced Redundancy Storage
+Reduced Repeated Storage
+
+Q: Why do you make subnets?
+Because there is a shortage of hosts
+Because there is a shortage of networks
+A: To efficiently utilize networks that have a large no. of hosts
+To efficiently utilize networks that have a small no. of hosts
+
+Q: What is an AMI?
+Amazon Machine Integer
+Amazon Material Image
+Amazon Machine Index
+A: Amazon Machine Image
+
+Q: What are the uses of Amazon Glazier?
+A: access infrequent data and archive data
+store frequently access data
+Fast computing
+Auto scaling and Load Balancing
+
+Q: Amazon S3 is a,
+Relational database
+A: Key-Based object store
+Content Delivery Network
+Domain System
+
+Q: You are using an S3 bucket through which you are running a photo sharing website. It is found that some of other sites owners also using you bucket URL and causing a loss to you business. How will you protect your buckets content from unauthorized usage?
+Firewall rules
+A: Utilize bucket polices, ACLs, and user policies
+None of the options
+Deleting data after usage
+<---------------------------------------------------->
+DEVELOPER TOOLS IN AWS
+AWS CodeBuild
+ * A build service that is fully managed, compiles source code, operates tests, and creates deployable software packages.
+ * CodeBuild scales endlessly and processes several builds simultaneously, so the builds are not in queue.
+Benefits
+ * Secure
+ * Allows Continuous Integration and Delivery
+ * Extensible
+ * Pay as You Go
+ * Continuous Scaling
+ * Fully Managed Build Service
+
+AWS CodeDeploy
+https://youtu.be/Wx-ain8UryM
+
+AWS CodePipeline
+https://youtu.be/YxcIj_SLflw
+
+AWS CodeCommit
+https://youtu.be/46PRLMW8otg
+<---------------------------------------------------->
+MANAGEMENT TOOLS IN AWS
+AWS offers a wide set of services for IT and System administrators to seamlessly manage and monitor -
+ * Infrastructure logs and metrics using alarms and real-time dashboards.
+ * Hybrid infrastructure resources
+AWS also allows to track, monitor and enforce security and compliance.
+Services Amazon EC2 Systems Manager: Configure and Manage EC2 Instances and On-premises Servers AWS CloudTrail: Track User Activity and API Usage AWS Config: Track Resource Inventory and Changes AWS Service Catalog: Create and Use Standardized Products AWS Personal Health Dashboard: Personalized view of AWS service health Amazon CloudWatch: Monitor Resources and Applications AWS Cloud Formation: Create and Manage Resources with Templates AWS OpsWorks: Automate Operations with Chef AWS Trusted Advisor: Optimize Performance and Security
+
+Amazon CloudWatch
+https://youtu.be/LSs_8G4N_1M
+
+Amazon CloudWatch
+Amazon CloudWatch is a monitoring service designed for AWS cloud resources and the applications operate on AWS. Amazon CloudWatch can be used to:
+ * Automatically react to changes in AWS resources.
+ * Collect, monitor log files and set alarms
+ * Collect and track metrics
+Attain system-wide visibility into operational health, application performance, and resource utilization.
+Amazon CloudWatch monitors AWS resources such as
+ * Amazon RDS DB instances
+ * Amazon DynamoDB tables
+ * Amazon EC2 instances
+ * Custom metrics or logs created by services and applications
+
+Amazon CloudTrail
+AWS CloudTrail is a service that allows risk auditing, operational auditing, compliance, and governance of AWS account.
+ * Routinely monitor and retain events specific to API calls throughout the AWS infrastructure.
+ * Offers history of AWS API calls for your account, which includes API calls done through the AWS SDKs, AWS Management Console, command line tools, and various AWS services.
+ * Reduces troubleshooting, security analysis, and resource change tracking.
+Benefits:
+ * Security Automation
+ * Visibility Into User and Resource Activity
+ * Security Analysis and Troubleshooting
+ * Simplified Compliance
+
+Q: Which service in AWS allows you to create and delete stacks of AWS resources which are defined in templates?
+Redshift
+Route 53
+CloudFront
+A: CloudFormation
+
+Q: What metrics can be monitored through cloudwatch without being charged?
+Memory usage
+Application Services
+A: disk, CPU, data transfer
+cloudwatch charges for all monitoring
+
+Q: Autoscaling is enabled through
+A: CloudWatch
+Virtual Private Cloud
+Route 53
+CloudFront
+
+Q: Amazon CloudFormation is a:
+A: Deployment and management service
+Application service
+Networking service
+Content delivery service
+
+Q: Which of the following is not true about Elastic Load Balancing
+A: Can be enabled only in a single availability zone
+achieves greater fault tolerance
+detects unhealthy instances and reroutes
+automatically distributes traffic
+<---------------------------------------------------->
+NETWORKING & CONTENT DELIVERY IN AWS
+This ensures provision of
+ * Global content delivery network (CDN) service that speeds up delivery of video content, APIs, websites, or other web assets.
+ * Logically isolated section of AWS cloud, where you can open AWS resources in a virtual network.
+ * Offer more safe and economical way to route end users to web applications by translating names into IP address.
+ * Set up a dedicated network connection from a location to AWS.
+
+Networking and Content Delivery in AWS
+Services offered -
+Elastic Load Balancing: High Scale Load Balancing Amazon Route 53: Scalable Domain Name System Amazon Cloud Front: Global Content Delivery Network AWS Direct Connect: Dedicated Network Connection to AWS Amazon VPC: Isolated Cloud Resources
+<---------------------------------------------------->
+SECURITY, IDENTITY & COMPLIANCE IN AWS
+Security, Identity and Compliance
+ * AWS offers data center and network architecture built to meet the requirements of the most security-sensitive organizations.
+ * The AWS cloud provides with a platform to scale and innovate, while still maintaining a secure environment.
+ * Pay only for the services been used.
+
+Security, Identity, and Compliance Products
+ -> Amazon Inspector - automated security assessment service, that aids to enhance the compliance and security of applications deployed on AWS.
+ -> AWS Identity and Access Management (IAM) - controls users access to AWS services. Allows to create, manage users and groups, and deny or grant access.
+ -> AWS Artifact - the portal offers on-demand access to AWS compliance and security documents (audit artifacts).
+ -> Amazon Cloud Directory - set up flexible cloud-native directories to organize hierarchies of data along numerous dimensions.
+ -> AWS Certificate Manager - seemlessly manage, provision, and deploy Secure Sockets Layer (SSL)/Transport Layer Security (TLS) certificates.
+ -> AWS CloudHSM - fulfill regulatory, contractual and corporate compliance requirements for data security by utilizing dedicated Hardware Security Module (HSM). AWS Directory Service - allows AWS resources and directory-aware workloads to utilize managed Active Directory in AWS Cloud for Microsoft Active Directory.
+ -> AWS WAF - web application firewall that aids in protecting web applications from web threats that could eat up excessive resources, or compromise security, hinder application availability.
+<---------------------------------------------------->
+INTERNET OF THINGS
+AWS IoT
+ -> AWS has developed IoT specific services that assists to gather and send data to the cloud. The IoT services makes it comfortable to load and analyze information, and offer the capability to manage devices and stress on developing applications that suit the requirements.
+ -> AWS Greengrass helps to operate data caching, messaging and local compute for connected devices in a safe way.
+ -> AWS IoT Platform is a managed cloud platform that allows connected devices interact with other devices and cloud applications securely and easily. AWS IoT can support many devices and lot of messages.
+ -> AWS IoT Button is a programmable button that is based on the Amazon Dash Button hardware. The Wi-Fi device is effortless to configure. AWS IoT Button is offered to developers to use Amazon SNS, Amazon DynamoDB, AWS Lambda, AWS IoT, and several other Amazon Web Services without the need to write device-specific code.
+<---------------------------------------------------->
+MESSAGING IN AWS
+ * Fully managed message queues for safe communication between microservices and applications
+ * Quick, flexible, fully managed push notification service to transmit specific messages or to fan-out messages to numerous recipients
+ * Run targeted campaigns to create user engagement in mobile applications
+ * cost-effective email service created on the scalable and reliable infrastructure
+Key offerings -
+ * Simple Email Service (SES) - Email Sending and Receiving
+ * Pinpoint - Push Notifications for Mobile Applications
+ * Simple Notification Service (SNS) - Pub or Sub, Mobile Push and SMS
+ * Simple Queue Service (SQS) - Managed Message Queues
+
+Q: A highly available and scalable domain name system web service
+Amazon Direct Connect
+Amazon VPC
+Amazon Workspaces
+A: Amazon Route 53
+
+Q: Which of these services are used to distribute content to end users using a global network of edge locations?
+A: CloudFront
+Virtual Private Cloud
+CloudWatch
+Route 53
+
+Q: What happens when content is not present at an edge location and a request is made to it?
+The request is kept on hold till the content is delivered to the edge location
+An error 404 not found is returned
+The request is routed to the next closest edge location
+A: CloudFront delivers the content directly from the origin server and stores it in the cache of the edge location
+
+Q: Which of the following is not correct about CloudFront?
+CloudFront can serve both static and dynamic content
+CloudFront can serve both compressed and uncompressed files
+A: CloudFront cannot serve content from a non AWS origin server
+CloudFront can stream content using RTMP(real time messaging protocol)
+
+Q: How can you restrict the access to the contents delivered in cloudfront?
+bucket policy
+IAM
+All the options mentioned
+A: Origin access identity
+
+Q: Which of these services will help in better availability______
+load balancer and auto scaling
+Instance store and spot instances
+A: SNS and SES
+RDS and EBS
+
+Q: You are serving content from CloudFront. Which of the following happens to an end user's request?
+The user's request is routed to the origin server
+The user's requests are routed to the edge location in the country from which the request originates
+A: The user's request is routed to the nearest edge location
+For countries without edge location, requests are routed to the origin server
+<---------------------------------------------------->
+APPLICATION SERVICES IN AWS
+Application Services
+AWS Application services have a broad range of services that helps in enhancing the rendering of application over cloud. Main offerings include -
+Amazon Elastic Transcoder - Simple Scalable Media Transcoding Amazon API Gateway - Build, Deploy, and Manage APIs AWS Step Functions - Coordinate Distributed Applications
+
+Step Functions
+Offers a graphical console to set up and visualize the components of the application as a series of steps.
+ * Easy to create and run multistep applications.
+ * Coordinate the components of microservices and distributed applications using visual workflows.
+ * Create applications from single components that each perform a discrete function to change and scale applications quickly.
+ * Triggers and tracks each step automatically, and retries when errors are noticed, which ensure your application executes as intended and in order.
+ * Logs the state of every single step. When things go wrong, it is simple to diagnose and debug issues fast. You can change and include steps without need to write code, effortlessly evolve the application and innovate rapidly.
+ * Manages the underlying infrastructure and operations to ensure application is available at all scales.
+
+Step Functions
+https://youtu.be/aJ6WaoQDE_M
+
+API Gateway
+Fully managed service that allows developers to create, publish, maintain, monitor, and secure APIs easily at any scale.
+ * Serves as a “front door” for applications to access functionality, data, or business logic from your back-end services, like , code running on AWS Lambda, workloads running on Amazon EC2 or any Web application.
+ * Takes care of processing and accepting of concurrent API calls, including API version management, monitoring, traffic management, and authorization and access conrol
+ * Pay only for the API calls received and the data transferred.
+
+How does AWS API Gateway work?
+https://youtu.be/ZFl3Qm-DBrg
+
+API Gateway Benefits
+ * Low-Cost and Efficient
+ * Performance at Any Scale
+ * Easily Monitor API Activity
+ * Streamline API Development
+ * Secure and Flexible
+ * Flexible Security Controls
+ * Create RESTful Endpoints
+ * Run Your APIs Without Servers
+
+Elastic Transcoder
+Media transcoding in the cloud.
+Businesses and developers could transcode or convert media files from their source format into versions that will playback on devices such as PCs, tablets and smartphones.
+It is designed to be user-friendly, economical, and highly scalable.
+<---------------------------------------------------->
+MOBILE SERVICES IN AWS
+AWS allows to easily build advanced cloud-powered applications for mobile devices! You might want to run the app on your preferred device efficiently, quickly, and securely. AWS offers the environment for this.
+Stream Real-Time Data – Gather real-time clickstream logs and react quickly. Store Shared Data – Store and query NoSQL data to users and devices. Authorize Access – Securely access cloud resources. Send Push Notifications – Keep users active by transmitting messages reliably. Deliver Media – Detect mobile devices automatically and render content quickly on a global basis. Analyze User Behavior – Track engagement and active users. Synchronize Data – Sync user preferences across devices. Manage Media – Store and share user-generated photos and other media items. Authenticate Users – Manage identity providers and users.
+
+Everything You Need to Build Mobile Apps
+Bountiful Cloud Services AWS provides a wide set of highly scalable, fully managed services that include data warehousing, content delivery, streaming, monitoring, databases, storage, logic, and machine learning in app without the need to manage any infrastructure.
+The Tools To Help You Build AWS allows to add cloud services to mobile app easily.
+ * Develop a serverless mobile backend
+ * Manage user identity and sign-in
+ * Transmit push notifications
+ * Track usage patterns and maximize your app with in-app analytics.
+ * Test against a huge set of real devices.
+
+AWS Offerings
+ -> AWS Mobile Hub - Build, Test, and Monitor Apps
+ -> Amazon Cognito - User Identity and App Data Synchronization
+ -> AWS Mobile SDK - Mobile Software Development Kit
+ -> Amazon API Gateway - Build, Deploy, and Manage APIs
+ -> Amazon Pinpoint - Push Notifications for Mobile Apps
+ -> AWS Device Farm - Test Android, FireOS, and iOS Apps on Real Devices in the Cloud
+
+Mobile Hub
+AWS Mobile Hub provides an integrated console that helps you
+ * Build
+ * Test and
+ * Monitor & manage mobile apps.
+Mobile Hub provisions and configures the necessary AWS services and creates a working sample app.
+
+Cognito
+Amazon Cognito reduces the task of
+ * Authenticating users, storing and managing
+ * Synchronizing data across several applications, platforms and devices.
+This functions both offline or online, and enables to save user-specific data securely such as game state and application preferences.
+Cognito supports unauthenticated guest users and works with several existing identity providers.
+<---------------------------------------------------->
+COURSE SUMMARY IN AWS
+Hope you had great learning ! To summarize, you first
+ * Learnt about Cloud Computing & its characteristics
+ * What is AWS & its application & usage
+Following that deep dived into the different offerings -
+ * Compute
+ * Storage
+ * Database
+ * Networking & Content Delivery
+ * Developer Tools
+ * Management Tools
+ * Security & Compliance
+ * Application Services
+ * Messaging
+<---------------------------------------------------->
+AWS ESSENTIALS FINAL ASSESSMENT
+
+Q: Route 53 can be used to route users to infrastructure outside of AWS
+A: True
+
+Q: Are the Reserved Instances available for Multi-AZ Deployments?
+Not Available for Reserved Instances
+Only available for M3 instance types
+A: Available for all instance types
+Multi-AZ Deployments are only available for Cluster Compute instances types
+
+Q: When will you incur costs with an Elastic IP address (EIP)?
+Costs are incurred regardless of whether the EIP is associated with a running instance.
+When an EIP is allocated
+A: When it is allocated and associated with a stopped instance.
+When it is allocated and associated with a running instance.
+
+Service-oriented architecture advocates __________________
+WRONG		IaaS
+WRONG		PaaS
+WRONG		SaaS
+EaaS
+
+Q: When you need to move data over long distances using the internet, for instance across countries or continents to your Amazon S3 bucket, which method or service will you use?
+A: Amazon Transfer Acceleration
+Amazon CloudFront
+Amazon Snowball
+Amazon Glacier
+
+Q: The _____ service mixes the simplicity of ________ with the power of _____, to great effect.
+SaaS,PaaS,IaaS
+IaaS,SaaS,PaaS
+A: PaaS,SaaS,IaaS
+
+Q: Which is a fully managed desktop computing service
+AWS Data Pipeline
+Amazon Direct Connect
+Amazon ElastiCache
+A: Amazon Workspaces
+
+Q: What is boot time for an EBS backed instance?
+A: 1 minute
+5 minutes
+10 minutes
+15 minutes
+
+Q: What is boot time for an Instance store backed instance?
+15 minutes
+10 minutes
+WRONG		1 minute
+	Around 5 minutes
+
+Which of the following can not be done using auto scaling ?
+WRONG		Remove instances based on cpu utilization
+Upgrade instance
+Add instances based on cpu utilization
+WRONG		Maintain fixed number of running ec2
+
+Q: Certain traditional software vendors to market solutions as “Cloud Computing” which does not actually meet the key characteristics highlighted by NIST. This phenomenon is known as
+A: Cloud-washing
+Cloud Servicing
+Cloud Compuwatch
+Cloud computing
+
+Q: EBS is not suited for applications that require a database, file system or access to raw block level storage
+A: False
+
+Q: Service that connects on-premises software appliances with cloud based storage
+AWS Direct Connect
+AWS Data Pipeline
+A: AWS Storage Gateway
+AWS VPN
+
+Q: Does Amazon support region based services on all Services?
+True
+A: False
+
+Q: If I want my instance to run on a single-tenant hardware, which value do I have to set the instance’s tenancy attribute to?
+Reserved
+A: Dedicated
+One
+Isolated
+
+Which is the characteristic of T2 instances?
+Moderate Baseline performance & high burst performance
+High baseline performance and moderate burst performance
+WRONG		High baseline and burst performance
+High baseline Performance & Low Burst performance
+<---------------------------------------------------->
+<----------------------------------MATERIAL------------------------------------>
+
+<------------------------------------TO DO------------------------------------->
+
+<-------------------------------VIDEO NOTATIONS-------------------------------->
+
+<------------------------------------WORDS------------------------------------->
